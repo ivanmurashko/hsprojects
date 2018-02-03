@@ -1,11 +1,10 @@
 all: src/Elliptic.hs
 	cabal build
 
-
 configure: elliptic.cabal
 	cabal configure	
 
-tests: test/elliptic.hs
+tests: tests/elliptic.hs
 	cabal configure --enable-tests
 	cabal test
 
