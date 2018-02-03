@@ -4,7 +4,7 @@ all: src/Elliptic.hs
 configure: elliptic.cabal
 	cabal configure	
 
-tests: tests/elliptic.hs
+tests: tests/elliptic.hs src/Elliptic.hs
 	cabal configure --enable-tests
 	cabal test
 

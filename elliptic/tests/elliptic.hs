@@ -8,6 +8,16 @@ testPoints = filter (\p -> p /= PointZero && xpos p == 1) ps @?= [Point 1 2 c, P
              where
                c = Curve (-7) 10 19
                ps = points c
+
+-- https://en.wikipedia.org/wiki/Counting_points_on_elliptic_curves
+testCurveOrder :: Assertion
+testCurveOrder = cord c @?= 9 where
+    c = Curve 1 1 5
+
+testPointOrder :: Assertion
+testPointOrder = pord p @?= 12 where
+    p = Point 13 8 (Curve (-7) 10 19)
+
                
 -- https://habrahabr.ru/post/335906/
 testSum :: Assertion
@@ -46,6 +56,8 @@ testScalarMul = map (\n -> n .*. Point 3 6 c) [0..5] @?= res where
 main :: IO ()
 main = defaultMainWithOpts
        [testCase "Points" testPoints, 
+        testCase "Curve Order" testCurveOrder,
+        testCase "Point Order" testPointOrder,  
         testCase "Sum" testSum,
         testCase "Sum zero" testSumZero,
         testCase "Sum zero 1" testSumZero1,
