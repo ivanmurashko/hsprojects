@@ -1,0 +1,2 @@
+# hsprojects
+Haskell projects
