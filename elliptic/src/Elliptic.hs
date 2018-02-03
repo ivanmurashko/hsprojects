@@ -23,6 +23,8 @@ class (Monoid a, Eq a, Show a) => EP a where
 class (Eq a, Show a) => EC a where
     cord :: a -> Int
 
+
+-- Elliptic curve class
 data Curve = Curve Integer Integer Integer
 
 instance Eq Curve where
@@ -32,6 +34,7 @@ instance Show Curve where
     show (Curve a b p) = "y^2 = (x^3 + " ++ show a ++ "x + " 
                          ++ show b ++ ") mod " ++ show p
 
+-- Class for Point on the elliptic curve
 data Point = PointZero | Point { xpos :: Integer, ypos :: Integer,  curve :: Curve } 
 
 instance Eq Point where
