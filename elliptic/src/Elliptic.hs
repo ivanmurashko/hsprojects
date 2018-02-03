@@ -8,7 +8,7 @@ module Elliptic
 
 -- Helper functions
 -- a^(-1)
-inv :: Integer -> Integer -> Integer
+inv :: Int -> Int -> Int
 inv a p = head $ filter (\x -> mod (x*a) p == 1) [1 .. p - 1]
 
 -- Interfaces
@@ -25,7 +25,7 @@ class (Eq a, Show a) => EC a where
 
 
 -- Elliptic curve class
-data Curve = Curve Integer Integer Integer
+data Curve = Curve Int Int Int
 
 instance Eq Curve where
     (==) (Curve a1 b1 p1) (Curve a2 b2 p2) = a1 == a2 && b1 == b2 && p1 == p2
@@ -35,7 +35,7 @@ instance Show Curve where
                          ++ show b ++ ") mod " ++ show p
 
 -- Class for Point on the elliptic curve
-data Point = PointZero | Point { xpos :: Integer, ypos :: Integer,  curve :: Curve } 
+data Point = PointZero | Point { xpos :: Int, ypos :: Int,  curve :: Curve } 
 
 instance Eq Point where
     (==) PointZero PointZero = True
