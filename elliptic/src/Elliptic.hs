@@ -3,7 +3,6 @@ module Elliptic
 , EC(..)
 , Point(..)
 , Curve(..)
-, points
 ) where
 
 -- Helper functions
@@ -22,7 +21,7 @@ class (Monoid a, Eq a, Show a) => EP a where
 -- Elliptic curve interface
 class (Eq a, Show a) => EC a where
     cord :: a -> Int
-
+    points :: a -> [Point]
 
 -- Elliptic curve class
 data Curve = Curve Int Int Int
@@ -77,11 +76,9 @@ instance EP Point where
         helper PointZero n = n
         helper acc n = helper (acc .+. p) (n + 1)
 
--- Elements of the group           
-points :: Curve -> [Point]
-points c@(Curve a b p) = PointZero : (map (\(x,y) -> Point x y c) $ filter ( \(x,y) -> (mod (y^2 - x^3 - a*x - b) p == 0) ) [(x,y) | x <- [0 .. p - 1 ], y <- [0 .. p - 1]])
-
-
 instance EC Curve where
     -- Group order
     cord = length . points
+
+    -- Elements of the group                             
+    points c@(Curve a b p) = PointZero : (map (\(x,y) -> Point x y c) $ filter ( \(x,y) -> (mod (y^2 - x^3 - a*x - b) p == 0) ) [(x,y) | x <- [0 .. p - 1 ], y <- [0 .. p - 1]])
