@@ -22,6 +22,9 @@ class (Monoid a, Eq a, Show a) => EP a where
 class (Eq a, Show a) => EC a where
     cord :: a -> Int
     points :: a -> [Point]
+    discriminant :: a -> Int
+    singular :: a -> Bool
+    printdata :: a -> IO()
 
 -- Elliptic curve class
 data Curve = Curve Int Int Int
@@ -82,3 +85,14 @@ instance EC Curve where
 
     -- Elements of the group                             
     points c@(Curve a b p) = PointZero : (map (\(x,y) -> Point x y c) $ filter ( \(x,y) -> (mod (y^2 - x^3 - a*x - b) p == 0) ) [(x,y) | x <- [0 .. p - 1 ], y <- [0 .. p - 1]])
+
+    -- discriminant
+    discriminant (Curve a b p) = (mod (4*a^3+27*b^2) p)
+
+    -- Is the curve singular
+    singular c = discriminant c == 0
+
+    -- Prints points
+    printdata c = mapM_ (\(Point x y _) -> (putStr . show) x >> 
+                                    putStr " " >> print y) ps where
+                  ps = filter (\p -> p /= PointZero) $ points c
