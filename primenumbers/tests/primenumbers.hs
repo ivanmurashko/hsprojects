@@ -4,7 +4,7 @@ import Test.Framework.Providers.HUnit
 import PrimeNumbers
 
 testGenerator :: Assertion
-testGenerator = take 4 numbers @?= [1,2,3,5]
+testGenerator = take 5 numbers @?= [2,3,5,7,11]
 
 
 main :: IO ()

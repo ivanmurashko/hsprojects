@@ -4,4 +4,4 @@ module PrimeNumbers
 
 -- Prime numbers generator --
 numbers :: [Int]
-numbers = [1 ..]
+numbers = filter (\x -> (length $ filter (\y -> x `mod` y == 0) [2 .. x]) == 1) [2 ..]
