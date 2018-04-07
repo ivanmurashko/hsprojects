@@ -1,6 +1,7 @@
 # hsprojects
 There are several Haskell projects 
 - elliptic: The simplest elliptic curve implementation
+- primenumbers: The prime numbers generator and operations with prime numbers
 
 Each project has its own Makefile.
 
