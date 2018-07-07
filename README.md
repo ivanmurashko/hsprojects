@@ -2,6 +2,7 @@
 There are several Haskell projects 
 - elliptic: The simplest elliptic curve implementation
 - primenumbers: The prime numbers generator and operations with prime numbers
+- experimental: Experiments with haskell
 
 Each project has its own Makefile.
 
@@ -9,4 +10,4 @@ Each project has its own Makefile.
 - Configuartion update (after running tests): make configure
 - Simple build: make
 - Run tests: make tests
-- Run repl: cabal repl
+- Run repl: make repl
