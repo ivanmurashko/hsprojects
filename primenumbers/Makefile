@@ -1,18 +1,23 @@
-all: src/PrimeNumbers.hs
+SOURCES=src/PrimeNumbers.hs
+TESTSOURCES=$(SOURCES) tests/primenumbers.hs
+SANDBOX=.cabal-sandbox
+
+$(SANDBOX): setup
+
+dist: $(SANDBOX) $(SOURCES) primenumbers.cabal
+	cabal configure
 	cabal build
 
-configure: primenumbers.cabal
-	cabal configure	
+all: dist
 
-tests: tests/primenumbers.hs src/PrimeNumbers.hs
+tests:  $(TESTSOURCES)
 	cabal configure --enable-tests
 	cabal test
 
 setup: primenumbers.cabal
 	cabal update
 	cabal sandbox init
-	cabal install test-framework-hunit
-	cabal install hunit-approx
+	cabal install --only-dependencies --enable-tests  primenumbers.cabal
 
 clean:
 	rm -rf dist
