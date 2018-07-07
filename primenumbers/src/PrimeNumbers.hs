@@ -1,6 +1,4 @@
-module PrimeNumbers 
-( numbers
-) where
+module PrimeNumbers ( numbers ) where
 
 -- Prime numbers generator --
 numbers :: [Int]

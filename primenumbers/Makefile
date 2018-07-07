@@ -22,7 +22,7 @@ clean:
 	rm -rf dist
 	find . -name "*~" -exec rm -rf {} \;
 
-repl:
+repl: all
 	cabal repl
 
 .PHONY: clean repl
