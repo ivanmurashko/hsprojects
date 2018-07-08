@@ -14,7 +14,7 @@ mgu = filter ff [(toN (l,e,t), toN (m,g,u), toN (g,o,d))|
                  g <- [1],
                  u <- alld, u /= m, u /= t, u /= e, u /= l,
                  o <- alld, o /= u, o /= m, o /= t, o /= e, o /= l,
-                 d <- alld, d /= 0, d /= u, d /= m, d /= t, d /= e, d /= l]
+                 d <- alld, d /= o, d /= u, d /= m, d /= t, d /= e, d /= l]
       where 
         toN (x,y,z) = x*100+y*10+z                      
         ff(x,y,z) = 250*x + y == 2005*z
