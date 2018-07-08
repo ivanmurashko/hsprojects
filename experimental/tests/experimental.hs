@@ -7,7 +7,7 @@ testCheck :: Assertion
 testCheck = check @?= True
 
 testMgu :: Assertion
-testMgu = map (\(x,y,z) -> 250*x + y - 2005*z) mgu @?= [0]
+testMgu = all (\(x,y,z) -> 250*x + y - 2005*z == 0) mgu @?= True
 
 
 main :: IO ()
