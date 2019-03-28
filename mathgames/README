@@ -1,0 +1,11 @@
+-- Prepare env
+make setup
+
+-- to build
+make all
+
+-- to run tests
+make tests
+
+-- to test via repl
+cabal repl
