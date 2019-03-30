@@ -1,4 +1,20 @@
-module MathGames ( allbeginnum,  isgoodnumber) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits) where
+
+-- Numbers with different digits
+nmbs :: Int -> [[Int]]
+nmbs 1 = map return [1 .. 9]
+nmbs n = [x : n | n <- nmbs (n - 1), x <- [0 .. 9], x `notElem` n]
+
+allNmbs :: Int -> [[Int]]
+allNmbs 1 = nmbs 1
+allNmbs n = allNmbs (n - 1) ++ nmbs n
+
+eval :: [Int] -> Int
+eval = snd . foldl (\(m, v) x -> (m * 10, x * m + v)) (1, 0)
+
+-- Generates list of number with different digits
+diffdigits = map eval $ allNmbs 10
+
 
 -- Begin number is a number gotten by removing all last digests --
 allbeginnum :: Int -> [Int]
