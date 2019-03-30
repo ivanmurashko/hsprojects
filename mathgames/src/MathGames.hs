@@ -1,4 +1,4 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186) where
 
 -- Numbers with different digits
 nmbs :: Int -> [[Int]]
@@ -28,3 +28,6 @@ isgoodnumber x = all (\t -> x `mod` t == 0) $ allbeginnum x
 
 -- Max 6 digit number that divided by all it begins number
 max6digit = undefined
+
+-- 186 into 186 = x + y + z and sum of each 2 is divided by the third
+sumTo186 = [(x,y,z)| x<-[1..186], y<-[1..186], let z = 186-x-y, y >= x, z >= y, (x + y) `mod` z == 0, (x + z) `mod` y == 0, (z+y) `mod` x == 0]
