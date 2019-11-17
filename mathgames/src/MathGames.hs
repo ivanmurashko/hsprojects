@@ -1,4 +1,9 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib) where
+
+-- Fibonachi numbers
+fib n = snd $ help n (1,0) where 
+    help 0 (x,y) = (x,y)
+    help n (x,y) = help (n -1) (y, x+y)
 
 -- Numbers with different digits
 nmbs :: Int -> [[Int]]
