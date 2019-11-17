@@ -13,7 +13,7 @@ dist: $(SANDBOX) $(SOURCES) mathgames.cabal
 	cabal configure
 	cabal build
 
-tests:  $(TESTSOURCES)
+tests: $(TESTSOURCES) $(SANDBOX) $(SOURCES) mathgames.cabal
 	cabal configure --enable-tests
 	cabal test
 
