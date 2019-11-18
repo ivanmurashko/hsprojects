@@ -1,4 +1,8 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac) where
+
+-- Factorial
+fac 0 = 1
+fac n = n * fac (n - 1)
 
 -- Fibonachi numbers
 fib n = snd $ help n (1,0) where 
