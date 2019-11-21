@@ -2,7 +2,7 @@ module Lib
     ( fib
     ) where
 
-fib :: Int -> Int
-fib 0 = 0
-fib 1 = 1
-fib n = fib (n - 1) + fib (n - 2)
+fib :: Word -> Integer
+fib n =  fst $ helper n (0, 1) where 
+    helper 0 (x, y) = (x, y)
+    helper n (x, y) = helper (n-1) (y, x + y)
