@@ -1,6 +1,5 @@
 import Test.QuickCheck
 import Lib
-import Data.Word
 
 prop_fib :: Word -> Bool
 prop_fib n
