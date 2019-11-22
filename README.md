@@ -5,6 +5,7 @@ There are several Haskell projects
 - experimental: Experiments with haskell
 - mathgames: Math puzzles in haskell
 - stacktest: Test for stack and quickcheck as utest framework
+- codewars: tasks from codewars.com
 
 Each project has its own Makefile.
 
