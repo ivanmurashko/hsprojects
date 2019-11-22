@@ -4,6 +4,7 @@ There are several Haskell projects
 - primenumbers: The prime numbers generator and operations with prime numbers
 - experimental: Experiments with haskell
 - mathgames: Math puzzles in haskell
+- stacktest: Test for stack and quickcheck as utest framework
 
 Each project has its own Makefile.
 
