@@ -10,9 +10,10 @@ fib n = snd $ help n (1,0) where
     help n (x,y) = help (n -1) (y, x+y)
 
 -- Lucas numbers
+luk :: Word -> Integer
 luk n = snd $ help n (1,2) where 
-    help 0 (x,y) = (x,y)
-    help n (x,y) = help (n -1) (y, x+y)
+    help 0 (x, y) = (x, y)
+    help n (x,y) = help (n - 1) (x+y, x)
 
 
 -- Numbers with different digits
