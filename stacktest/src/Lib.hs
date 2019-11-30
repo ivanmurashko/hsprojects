@@ -1,6 +1,14 @@
 module Lib
-    ( fib, minlist
+    ( luk, fib, minlist
     ) where
+
+
+-- Lucas numbers
+luk :: Word -> Integer
+luk n = snd $ help n (1,2) where 
+    help 0 (x, y) = (x, y)
+    help n (x,y) = help (n - 1) (x+y, x)
+
 
 fib :: Word -> Integer
 fib n =  fst $ helper n (0, 1) where 

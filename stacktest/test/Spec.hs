@@ -1,6 +1,13 @@
 import Test.QuickCheck
 import Lib
 
+prop_luk :: Word -> Bool
+prop_luk n
+    | n == 0 = luk n == 2
+    | n == 1 = luk n == 1
+    | otherwise = (luk n + luk (n+1)) == luk (n + 2) 
+
+
 prop_fib :: Word -> Bool
 prop_fib n
     | n == 0 = fib n == 0
@@ -26,6 +33,6 @@ prop_minlist2 xs
 
 
 main :: IO ()
-main = quickCheck prop_fib >> 
+main = quickCheck prop_fib >> quickCheck prop_luk >> 
        quickCheck prop_minlist1 >> 
        quickCheck prop_minlist2

@@ -1,4 +1,4 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk) where
 
 -- Factorial
 fac 0 = 1
@@ -8,6 +8,12 @@ fac n = n * fac (n - 1)
 fib n = snd $ help n (1,0) where 
     help 0 (x,y) = (x,y)
     help n (x,y) = help (n -1) (y, x+y)
+
+-- Lucas numbers
+luk n = snd $ help n (1,2) where 
+    help 0 (x,y) = (x,y)
+    help n (x,y) = help (n -1) (y, x+y)
+
 
 -- Numbers with different digits
 nmbs :: Int -> [[Int]]
