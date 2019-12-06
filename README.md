@@ -3,9 +3,10 @@ There are several Haskell projects
 - elliptic: The simplest elliptic curve implementation
 - primenumbers: The prime numbers generator and operations with prime numbers
 - experimental: Experiments with haskell
-- mathgames: Math puzzles in haskell
+- mathgames: obsolete - see mathexperiments
 - stacktest: Test for stack and quickcheck as utest framework
 - codewars: tasks from codewars.com
+- mathexperiments: Math puzzles in haskell (based on stack)
 
 Each project has its own Makefile.
 
