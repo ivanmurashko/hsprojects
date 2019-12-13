@@ -1,8 +1,9 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday, bincoeff) where
 
 -- Factorial
+fac :: Integer -> Integer
 fac 0 = 1
-fac n = n * fac (n - 1)
+fac n = product [1 .. n]
 
 -- Fibonachi numbers
 fib n = snd $ help n (1,0) where 
@@ -50,3 +51,7 @@ sumTo186 = [(x,y,z)| x<-[1..186], y<-[1..186], let z = 186-x-y, y >= x, z >= y, 
 
 -- Birthday paradox
 samebirthday n = 1.0 - (fromIntegral $ product $ map (\i -> (365 -i + 1)) [1 .. n])/(fromIntegral $ 365^n)
+
+-- Binomial coefficient
+bincoeff :: Integer -> Integer -> Integer
+bincoeff n m = (fac n) `div` ((fac m) * fac (n - m))

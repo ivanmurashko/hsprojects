@@ -41,12 +41,18 @@ testMisc = testGroup "Misc tests" [
                      map (\i -> round $ 100 * (samebirthday i)) [10,20,50,100]  @?= [12, 41, 97, 100]
            ]
 
--- Birthday paradox
+-- Binomial coefficients
+prop_bincoeff_sum :: Word -> Bool
+prop_bincoeff_sum n = (sum $ map (\i -> bincoeff (fromIntegral n) (fromIntegral i)) [0 .. n]) == 2^n
+testBinCoeff :: TestTree
+testBinCoeff = testGroup "Binomial coefficient tests" [
+           testProperty "Sum property" prop_bincoeff_sum
+          ]
 
 
 allTests :: TestTree
 allTests = testGroup "Math experiments tests" [
-            testFib, testLuk, testMisc
+            testFib, testLuk, testMisc, testBinCoeff
            ]
 
 main :: IO ()
