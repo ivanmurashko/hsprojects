@@ -36,8 +36,12 @@ testMisc = testGroup "Misc tests" [
             testCase "Factorial tests" $
                      map fac [0,1,2,3,4,5] @?= [1,1,2,6,24,120], 
             testCase "All begin numbers" $ 
-                     sort (allbeginnum 12345) @?= [1,12,123,1234]
+                     sort (allbeginnum 12345) @?= [1,12,123,1234],
+            testCase "Birthday paradox" $ 
+                     map (\i -> round $ 100 * (samebirthday i)) [10,20,50,100]  @?= [12, 41, 97, 100]
            ]
+
+-- Birthday paradox
 
 
 allTests :: TestTree

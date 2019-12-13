@@ -1,4 +1,4 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday) where
 
 -- Factorial
 fac 0 = 1
@@ -47,3 +47,6 @@ max6digit = undefined
 
 -- 186 into 186 = x + y + z and sum of each 2 is divided by the third
 sumTo186 = [(x,y,z)| x<-[1..186], y<-[1..186], let z = 186-x-y, y >= x, z >= y, (x + y) `mod` z == 0, (x + z) `mod` y == 0, (z+y) `mod` x == 0]
+
+-- Birthday paradox
+samebirthday n = 1.0 - (fromIntegral $ product $ map (\i -> (365 -i + 1)) [1 .. n])/(fromIntegral $ 365^n)
