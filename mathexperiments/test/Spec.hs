@@ -44,7 +44,7 @@ testMisc = testGroup "Misc tests" [
 -- Binomial coefficients
 prop_bincoeff_sum :: Word -> Bool
 prop_bincoeff_sum n = (sum $ map (\i -> bincoeff (fromIntegral n) (fromIntegral i)) [0 .. n]) == 2^n
-prop_bincoeff_simmetry n m = (n >= m) ==> bincoeff n m == bincoeff n (n -m)
+prop_bincoeff_simmetry n m = (n >= m) ==> bincoeff n m == bincoeff n (n - m)
 
 testBinCoeff :: TestTree
 testBinCoeff = testGroup "Binomial coefficient tests" [
