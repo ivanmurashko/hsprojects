@@ -1,4 +1,4 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday, bincoeff) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday, bincoeff, fish_in_pond) where
 
 -- Factorial
 fac :: Integer -> Integer
@@ -55,3 +55,10 @@ samebirthday n = 1.0 - (fromIntegral $ product $ map (\i -> (365 -i + 1)) [1 .. 
 -- Binomial coefficient
 bincoeff :: Integer -> Integer -> Integer
 bincoeff n m = (fac n) `div` ((fac m) * fac (n - m))
+
+-- Fish in a pond
+-- How many fishes are in the pond if in
+-- every 15 fishes with high probability we get 5 marked ones?
+fish_in_pond n = (fromIntegral sizeA) / (fromIntegral sizeOmega) where 
+    sizeA = (bincoeff 15 5) * (bincoeff (n - 15) 10)
+    sizeOmega =  bincoeff n 15
