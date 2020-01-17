@@ -1,4 +1,4 @@
-module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday, bincoeff, fish_in_pond) where
+module MathGames ( allbeginnum,  isgoodnumber, diffdigits, sumTo186, fib, fac, luk, samebirthday, bincoeff, fish_in_pond, digitsum) where
 
 -- Factorial
 fac :: Integer -> Integer
@@ -62,3 +62,8 @@ bincoeff n m = (fac n) `div` ((fac m) * fac (n - m))
 fish_in_pond n = (fromIntegral sizeA) / (fromIntegral sizeOmega) where 
     sizeA = (bincoeff 15 5) * (bincoeff (n - 15) 10)
     sizeOmega =  bincoeff n 15
+
+
+-- Calculate a sum of digits in a number
+digitsum :: Integer -> Integer
+digitsum = undefined

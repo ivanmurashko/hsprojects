@@ -47,3 +47,4 @@ max6digit = undefined
 
 -- 186 into 186 = x + y + z and sum of each 2 is divided by the third
 sumTo186 = [(x,y,z)| x<-[1..186], y<-[1..186], let z = 186-x-y, y >= x, z >= y, (x + y) `mod` z == 0, (x + z) `mod` y == 0, (z+y) `mod` x == 0]
+
