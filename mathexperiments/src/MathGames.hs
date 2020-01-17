@@ -66,6 +66,8 @@ fish_in_pond n = (fromIntegral sizeA) / (fromIntegral sizeOmega) where
 
 -- Calculate a sum of digits in a number
 digitsum :: Integer -> Integer
-digitsum 0 = 0
-digitsum x = (x `mod` 10) + digitsum (x `div` 10)
+digitsum x = 
+  | x == 0 = 0
+  | x < 0 = undefined
+  | otherwise = (x `mod` 10) + digitsum (x `div` 10)
 
