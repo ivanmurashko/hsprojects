@@ -38,7 +38,10 @@ testMisc = testGroup "Misc tests" [
             testCase "All begin numbers" $ 
                      sort (allbeginnum 12345) @?= [1,12,123,1234],
             testCase "Birthday paradox" $ 
-                     map (\i -> round $ 100 * (samebirthday i)) [10,20,50,100]  @?= [12, 41, 97, 100]
+                     map (\i -> round $ 100 * (samebirthday i)) [10,20,50,100]  @?= [12, 41, 97, 100],
+            testCase "Sum of digits" $
+                     map digitsum [10,11,12,123,12345,5287,52087] @?= [1,2,3,6,15,22,22] 
+
            ]
 
 -- Binomial coefficients
@@ -52,7 +55,6 @@ testBinCoeff = testGroup "Binomial coefficient tests" [
            testProperty "Sum property" prop_bincoeff_sum,
            testProperty "Simmetry" prop_bincoeff_simmetry
           ]
-
 
 allTests :: TestTree
 allTests = testGroup "Math experiments tests" [
