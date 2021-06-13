@@ -7,6 +7,7 @@ There are several Haskell projects
 - stacktest: Test for stack and quickcheck as utest framework
 - codewars: tasks from codewars.com
 - mathexperiments: Math puzzles in haskell (based on stack)
+- snippets: Code snippets from different topics
 
 Each project has its own Makefile.
 

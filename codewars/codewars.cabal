@@ -28,7 +28,7 @@ source-repository head
 library
   exposed-modules:
       Lib
-      , TheSupermarketQueue
+      , TheSupermarketQueue, FabergeEasterEggsCrushTest
   other-modules:
       Paths_codewars
   hs-source-dirs:
